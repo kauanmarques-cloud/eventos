@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Eventos</title>
+    
 
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+     rel="stylesheet">   
+ <title>Eventos</title>
 </head>
-
 <body>
 
     <div th:replace="~{menu :: menu}"></div>
@@ -26,6 +27,7 @@
                     <th>Local</th>
                     <th>Data</th>
                     <th>Horário</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -49,6 +51,10 @@
                     <td th:text="${e.horario}">
                         19:00
                     </td>
+                    
+            <td><a th:href="@{/eventos/{id}/remover(id=${e.Id})}"><i class="material-icons">delete</i></a>
+                    </td>
+                  
 
                 </tr>
 
