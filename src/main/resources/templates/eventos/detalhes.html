@@ -2,41 +2,118 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>eventos</title>
-	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta charset="UTF-8">
+<title>Eventos</title>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
 
 	<div th:replace="~{menu :: menu}"></div>
 
-	<div>class="container"
+	<div class="container">
 
-		<h1>Lista de eventos</h1>
+		<h1>Detalhes do evento</h1>
 
-		<table>
-		
-		<thead>
-		<tr>
-		<th> Id </th>
-		<th> Nome </th>
-		<th> Local </th>
-		<th> Data </th>
-		<th> Horario </th>
-		</tr>
-		</thead>
-	       <tbody>
-	       <tr th:each="e : ${eventos}">
-       <td th:text= "${e.id}">1</td>
-        <td th:text= "${e.nome}"> Anivesario de joão</td>
-         <td th:text= "${e.local}"> Clube</td>
-          <td th:text= "${e.data}"> 25/02/2021</td>
-           <td th:text= "${e.horario}"> 19:00</td>
-	       </tr>
-	       </tbody>
-		</table>
-	</div>
+		<div class="row">
+
+			<div class="col s12">
+
+				<div class="card">
+
+					<div class="card-content">
+
+						<span class="card-title">Evento</span>
+
+						<p>
+							<strong>Id:</strong> <span th:text="${evento.id}">1</span>
+						</p>
+
+						<p>
+							<strong>Nome:</strong> <span th:text="${evento.nome}">
+								Aniversário de José </span>
+						</p>
+
+						<p>
+							<strong>Local:</strong> <span th:text="${evento.local}">
+								Clube </span>
+						</p>
+
+						<p>
+							<strong>Data:</strong> <span th:text="${evento.data}">
+								25/02/2021 </span>
+						</p>
+
+						<p>
+							<strong>Horário:</strong> <span th:text="${evento.horario}">
+								20:00 </span>
+						</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+<div class="row">
+
+			<div class="col s12">
+
+				<div class="card">
+
+			<div class="card-content">
+		<span class="card-title">Adicionar Convidado</span>
+                  <form action="" method= "post">
+                  <div>
+                 <label>Nome:</label><input type="text" name="nome">
+                 </div>
+                  <div>
+                 <label>Rg:</label><input type="text" name="rg">
+                 </div>
+                 <div>
+                 <button type="submit" class="btn">Salvar</button>
+                 <button type="resert" class="btn">Limpar</button>
+                 </div>
+                        </form>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+   <div class="row">			
+			<div class = "col s12">
+			<div class="card">
+			<div class="card-content">
+		<span class="card-title">Convidados</span>
+          <table class="highlight">
+          <thead> 
+          <tr>
+              <th>Id</th>
+               <th>Nome</th> 
+               <th>Rg</th> 
+            </tr>   
+          </thead>
+          <tbody>
+          <tr th:each="c : ${convidados}">
+          <td th:text="${c.id}">1</td>
+           <td th:text="${c.nome}">fernando</td>
+            <td th:text="${c.rg}">123</td>
+          </tr>
+         
+          </tbody>
+          </table>
+</div>
+					</div>
+				</div>
+		</div>	
+<	
+
 </body>
 </html>
